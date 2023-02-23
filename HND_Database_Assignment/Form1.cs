@@ -12,7 +12,7 @@ namespace HND_Database_Assignment
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Welcome to Quiet Attic Database Managment System");
+            MessageBox.Show("Welcome to Quiet Attic Database Managment System", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void label1_Click(object sender, EventArgs e)
