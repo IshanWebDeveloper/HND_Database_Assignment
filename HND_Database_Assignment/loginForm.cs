@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace HND_Database_Assignment
 {
-    public partial class Form1 : Form
+    public partial class loginForm : Form
     {
-        public Form1()
+        public loginForm()
         {
             InitializeComponent();
         }
@@ -27,9 +27,9 @@ namespace HND_Database_Assignment
 
         private void button1_Click(object sender, EventArgs e)
         {
-            production p1 = new production();
+            HomePageForm home = new HomePageForm();
             this.Hide();
-            p1.Show();
+            home.Show();
 
         }
     }

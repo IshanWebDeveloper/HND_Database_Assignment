@@ -1,6 +1,6 @@
 ﻿namespace HND_Database_Assignment
 {
-    partial class production
+    partial class ProductionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.addCustLink = new System.Windows.Forms.LinkLabel();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -57,15 +57,16 @@
             this.userDocumentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.addLocatonLink = new System.Windows.Forms.LinkLabel();
+            this.calcProdCostBtn = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.viewStfDetailsBtn = new System.Windows.Forms.Button();
+            this.totalPrdDayLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +111,6 @@
             this.label2.Size = new System.Drawing.Size(106, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Production Type";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox3
             // 
@@ -127,7 +127,6 @@
             this.label3.Size = new System.Drawing.Size(53, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "ClientID";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -155,7 +154,6 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "CLEAR";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView1
             // 
@@ -164,18 +162,19 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(639, 291);
+            this.dataGridView1.Size = new System.Drawing.Size(639, 313);
             this.dataGridView1.TabIndex = 12;
             // 
-            // linkLabel1
+            // addCustLink
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(317, 125);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(92, 16);
-            this.linkLabel1.TabIndex = 13;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Add Customer";
+            this.addCustLink.AutoSize = true;
+            this.addCustLink.Location = new System.Drawing.Point(317, 125);
+            this.addCustLink.Name = "addCustLink";
+            this.addCustLink.Size = new System.Drawing.Size(92, 16);
+            this.addCustLink.TabIndex = 13;
+            this.addCustLink.TabStop = true;
+            this.addCustLink.Text = "Add Customer";
+            this.addCustLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // button3
             // 
@@ -261,24 +260,28 @@
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
             this.clientsToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
             this.clientsToolStripMenuItem.Text = "Clients";
+            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
             // addStaffToolStripMenuItem
             // 
             this.addStaffToolStripMenuItem.Name = "addStaffToolStripMenuItem";
             this.addStaffToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
             this.addStaffToolStripMenuItem.Text = "Production Staff";
+            this.addStaffToolStripMenuItem.Click += new System.EventHandler(this.addStaffToolStripMenuItem_Click);
             // 
             // productionProperitesToolStripMenuItem
             // 
             this.productionProperitesToolStripMenuItem.Name = "productionProperitesToolStripMenuItem";
             this.productionProperitesToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
             this.productionProperitesToolStripMenuItem.Text = "Production Properites";
+            this.productionProperitesToolStripMenuItem.Click += new System.EventHandler(this.productionProperitesToolStripMenuItem_Click);
             // 
             // locationsToolStripMenuItem
             // 
             this.locationsToolStripMenuItem.Name = "locationsToolStripMenuItem";
             this.locationsToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
             this.locationsToolStripMenuItem.Text = "Production Locatons";
+            this.locationsToolStripMenuItem.Click += new System.EventHandler(this.locationsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -312,29 +315,29 @@
             // closeProgramToolStripMenuItem
             // 
             this.closeProgramToolStripMenuItem.Name = "closeProgramToolStripMenuItem";
-            this.closeProgramToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.closeProgramToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.closeProgramToolStripMenuItem.Text = "Close Program";
             this.closeProgramToolStripMenuItem.Click += new System.EventHandler(this.closeProgramToolStripMenuItem_Click);
             // 
-            // linkLabel2
+            // addLocatonLink
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(317, 358);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(86, 16);
-            this.linkLabel2.TabIndex = 21;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Add Location";
+            this.addLocatonLink.AutoSize = true;
+            this.addLocatonLink.Location = new System.Drawing.Point(317, 358);
+            this.addLocatonLink.Name = "addLocatonLink";
+            this.addLocatonLink.Size = new System.Drawing.Size(86, 16);
+            this.addLocatonLink.TabIndex = 21;
+            this.addLocatonLink.TabStop = true;
+            this.addLocatonLink.Text = "Add Location";
+            this.addLocatonLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addLocatonLink_LinkClicked);
             // 
-            // button6
+            // calcProdCostBtn
             // 
-            this.button6.Location = new System.Drawing.Point(827, 367);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(228, 49);
-            this.button6.TabIndex = 22;
-            this.button6.Text = "Calculate Total Production Cost";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.calcProdCostBtn.Location = new System.Drawing.Point(828, 392);
+            this.calcProdCostBtn.Name = "calcProdCostBtn";
+            this.calcProdCostBtn.Size = new System.Drawing.Size(228, 49);
+            this.calcProdCostBtn.TabIndex = 22;
+            this.calcProdCostBtn.Text = "Calculate Total Production Cost";
+            this.calcProdCostBtn.UseVisualStyleBackColor = true;
             // 
             // textBox5
             // 
@@ -383,36 +386,46 @@
             this.comboBox1.Size = new System.Drawing.Size(172, 24);
             this.comboBox1.TabIndex = 28;
             // 
-            // button7
+            // viewStfDetailsBtn
             // 
-            this.button7.Location = new System.Drawing.Point(417, 367);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(228, 49);
-            this.button7.TabIndex = 29;
-            this.button7.Text = "View Staff Details";
-            this.button7.UseVisualStyleBackColor = true;
+            this.viewStfDetailsBtn.Location = new System.Drawing.Point(418, 392);
+            this.viewStfDetailsBtn.Name = "viewStfDetailsBtn";
+            this.viewStfDetailsBtn.Size = new System.Drawing.Size(228, 49);
+            this.viewStfDetailsBtn.TabIndex = 29;
+            this.viewStfDetailsBtn.Text = "View Staff Details";
+            this.viewStfDetailsBtn.UseVisualStyleBackColor = true;
             // 
-            // production
+            // totalPrdDayLabel
+            // 
+            this.totalPrdDayLabel.AutoSize = true;
+            this.totalPrdDayLabel.Location = new System.Drawing.Point(788, 36);
+            this.totalPrdDayLabel.Name = "totalPrdDayLabel";
+            this.totalPrdDayLabel.Size = new System.Drawing.Size(211, 16);
+            this.totalPrdDayLabel.TabIndex = 30;
+            this.totalPrdDayLabel.Text = "Total Number of Production Days: ";
+            // 
+            // ProductionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 540);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.totalPrdDayLabel);
+            this.Controls.Add(this.viewStfDetailsBtn);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.calcProdCostBtn);
+            this.Controls.Add(this.addLocatonLink);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.addCustLink);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -426,7 +439,7 @@
             this.Controls.Add(this.ProductionID);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "production";
+            this.Name = "ProductionForm";
             this.Text = "Film Production Details";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -449,7 +462,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel addCustLink;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -461,8 +474,8 @@
         private System.Windows.Forms.ToolStripMenuItem userGuideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userDocumentationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.LinkLabel addLocatonLink;
+        private System.Windows.Forms.Button calcProdCostBtn;
         private System.Windows.Forms.ToolStripMenuItem goToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addStaffToolStripMenuItem;
@@ -475,6 +488,7 @@
         private System.Windows.Forms.ToolStripMenuItem productionProperitesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem locationsToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button viewStfDetailsBtn;
+        private System.Windows.Forms.Label totalPrdDayLabel;
     }
 }
