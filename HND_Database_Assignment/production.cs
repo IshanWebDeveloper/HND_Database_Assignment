@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -13,8 +14,12 @@ namespace HND_Database_Assignment
         public ProductionForm()
         {
             InitializeComponent();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // when click on a row, full row will be selected
+            dataGridView1.MultiSelect = false;
 
         }
+
+
 
         private void closeProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -42,13 +47,17 @@ namespace HND_Database_Assignment
                     prdTypeTxtBx.Text = reader[4].ToString();
                     TotalProductionDays = Convert.ToInt16(reader[5]);
                     filLocationListBox(ProdID);
+
                     prdDaysLabel.Text = TotalProductionDays.ToString();
+
+
 
 
                     if (reader[1] == null)
                     {
                         addCustLink.Enabled = true;
                     }
+
 
                 }
                 else
@@ -63,6 +72,8 @@ namespace HND_Database_Assignment
 
                 }
                 GlobalDatabaseCon.closeDBCon();
+                reader.Close();
+                fillDataGridView(command);
             }
 
 
@@ -72,6 +83,21 @@ namespace HND_Database_Assignment
 
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void fillDataGridView(SqlCommand cmdQuery)
+        {
+            GlobalDatabaseCon.intitializeDBCon();
+            SqlDataAdapter da = new SqlDataAdapter(cmdQuery);
+            DataSet ds = new DataSet();
+            DataTable dataTable = new DataTable();
+            da.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+            da.Fill(dataTable);
+
+            GlobalDatabaseCon.closeDBCon();
+
 
         }
 
@@ -103,6 +129,7 @@ namespace HND_Database_Assignment
             prdEndDate.ResetText();
             prdTypeTxtBx.Text = string.Empty;
             locationListBx.Items.Clear();
+            dataGridView1.DataSource = null;
         }
 
 
@@ -150,7 +177,7 @@ namespace HND_Database_Assignment
 
         private void ProductionForm_Load(object sender, EventArgs e)
         {
-
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void prdIDKeyDown(object sender, KeyEventArgs e)

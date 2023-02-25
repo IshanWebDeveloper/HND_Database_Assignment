@@ -150,7 +150,7 @@
             // addPrdBtn
             // 
             this.addPrdBtn.Enabled = false;
-            this.addPrdBtn.Location = new System.Drawing.Point(13, 461);
+            this.addPrdBtn.Location = new System.Drawing.Point(58, 477);
             this.addPrdBtn.Name = "addPrdBtn";
             this.addPrdBtn.Size = new System.Drawing.Size(150, 56);
             this.addPrdBtn.TabIndex = 9;
@@ -160,7 +160,7 @@
             // clearPrdBtn
             // 
             this.clearPrdBtn.Enabled = false;
-            this.clearPrdBtn.Location = new System.Drawing.Point(953, 461);
+            this.clearPrdBtn.Location = new System.Drawing.Point(1226, 477);
             this.clearPrdBtn.Name = "clearPrdBtn";
             this.clearPrdBtn.Size = new System.Drawing.Size(150, 56);
             this.clearPrdBtn.TabIndex = 13;
@@ -191,7 +191,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(689, 313);
+            this.dataGridView1.Size = new System.Drawing.Size(962, 313);
             this.dataGridView1.TabIndex = 12;
             // 
             // addCustLink
@@ -208,7 +208,7 @@
             // 
             // searchPrdBtn
             // 
-            this.searchPrdBtn.Location = new System.Drawing.Point(248, 461);
+            this.searchPrdBtn.Location = new System.Drawing.Point(350, 477);
             this.searchPrdBtn.Name = "searchPrdBtn";
             this.searchPrdBtn.Size = new System.Drawing.Size(150, 56);
             this.searchPrdBtn.TabIndex = 10;
@@ -218,7 +218,7 @@
             // editPrdBtn
             // 
             this.editPrdBtn.Enabled = false;
-            this.editPrdBtn.Location = new System.Drawing.Point(483, 461);
+            this.editPrdBtn.Location = new System.Drawing.Point(642, 477);
             this.editPrdBtn.Name = "editPrdBtn";
             this.editPrdBtn.Size = new System.Drawing.Size(150, 56);
             this.editPrdBtn.TabIndex = 11;
@@ -228,7 +228,7 @@
             // deletePrdBtn
             // 
             this.deletePrdBtn.Enabled = false;
-            this.deletePrdBtn.Location = new System.Drawing.Point(718, 461);
+            this.deletePrdBtn.Location = new System.Drawing.Point(934, 477);
             this.deletePrdBtn.Name = "deletePrdBtn";
             this.deletePrdBtn.Size = new System.Drawing.Size(150, 56);
             this.deletePrdBtn.TabIndex = 12;
@@ -265,7 +265,7 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1117, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1420, 28);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -395,7 +395,7 @@
             // 
             // calcProdCostBtn
             // 
-            this.calcProdCostBtn.Location = new System.Drawing.Point(828, 392);
+            this.calcProdCostBtn.Location = new System.Drawing.Point(1149, 399);
             this.calcProdCostBtn.Name = "calcProdCostBtn";
             this.calcProdCostBtn.Size = new System.Drawing.Size(228, 49);
             this.calcProdCostBtn.TabIndex = 15;
@@ -444,7 +444,7 @@
             // viewStfDetailsBtn
             // 
             this.viewStfDetailsBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.viewStfDetailsBtn.Location = new System.Drawing.Point(418, 392);
+            this.viewStfDetailsBtn.Location = new System.Drawing.Point(415, 399);
             this.viewStfDetailsBtn.Name = "viewStfDetailsBtn";
             this.viewStfDetailsBtn.Size = new System.Drawing.Size(228, 49);
             this.viewStfDetailsBtn.TabIndex = 14;
@@ -456,7 +456,7 @@
             this.totalPrdDayLabel.AutoSize = true;
             this.totalPrdDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalPrdDayLabel.ForeColor = System.Drawing.Color.OrangeRed;
-            this.totalPrdDayLabel.Location = new System.Drawing.Point(776, 24);
+            this.totalPrdDayLabel.Location = new System.Drawing.Point(888, 22);
             this.totalPrdDayLabel.Name = "totalPrdDayLabel";
             this.totalPrdDayLabel.Size = new System.Drawing.Size(225, 25);
             this.totalPrdDayLabel.TabIndex = 30;
@@ -467,7 +467,7 @@
             this.prdDaysLabel.AutoSize = true;
             this.prdDaysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prdDaysLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.prdDaysLabel.Location = new System.Drawing.Point(1026, 25);
+            this.prdDaysLabel.Location = new System.Drawing.Point(1136, 25);
             this.prdDaysLabel.Name = "prdDaysLabel";
             this.prdDaysLabel.Size = new System.Drawing.Size(78, 22);
             this.prdDaysLabel.TabIndex = 31;
@@ -494,7 +494,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1117, 540);
+            this.ClientSize = new System.Drawing.Size(1420, 561);
             this.Controls.Add(this.clientNameTxtBx);
             this.Controls.Add(this.locationListBx);
             this.Controls.Add(this.prdDaysLabel);
