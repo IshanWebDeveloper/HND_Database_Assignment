@@ -7,8 +7,8 @@ namespace HND_Database_Assignment
     public partial class ProductionForm : Form
 
     {
-        static readonly string con_string = "Data Source=ISHAN-PC\\SQLEXPRESS;Initial Catalog=film_production;Integrated Security=true";
-        SqlConnection con = new SqlConnection(con_string);
+        private int ProdID { get; set; }
+        public int TotalProductionDays { get; set; }
 
         public ProductionForm()
         {
@@ -16,15 +16,77 @@ namespace HND_Database_Assignment
 
         }
 
-
-
-
-
-
         private void closeProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
+
+        private void load_production()
+        {
+            try
+            {
+                GlobalDatabaseCon.intitializeDBCon();
+                SqlCommand command = new SqlCommand("SELECT Production_ID, clientID, Client_Name, Production_Name, Production_Type, number_of_days FROM productions p INNER JOIN clients c on p.clientID = c.Client_ID  WHERE Production_ID=@pID", GlobalDatabaseCon.con);
+                command.Parameters.AddWithValue("@pID", Convert.ToString(prdIDTextBx.Text));
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    ProdID = Convert.ToInt16(reader[0]);
+                    editPrdBtn.Enabled = true;
+                    deletePrdBtn.Enabled = true;
+                    clearPrdBtn.Enabled = true;
+                    clientIDTxtBx.Text = reader[1].ToString();
+                    clientNameTxtBx.Text = reader[2].ToString();
+                    prdNameTxtBx.Text = reader[3].ToString();
+                    prdTypeTxtBx.Text = reader[4].ToString();
+                    TotalProductionDays = Convert.ToInt16(reader[5]);
+                    prdDaysLabel.Text = TotalProductionDays.ToString();
+
+
+                    if (reader[1] == null)
+                    {
+                        addCustLink.Enabled = true;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show($"No record found for Production ID: {prdIDTextBx.Text}. You can add new record.");
+                    prdDaysLabel.Text = "";
+                    addPrdBtn.Enabled = true;
+                    addCustLink.Enabled = true;
+                    editPrdBtn.Enabled = false;
+                    deletePrdBtn.Enabled = false;
+                    clearPrdBtn.Enabled = true;
+
+                }
+                GlobalDatabaseCon.closeDBCon();
+            }
+
+
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void clearProductionFrm()
+        {
+            prdIDTextBx.Text = string.Empty;
+            clientNameTxtBx.Text = string.Empty;
+            prdNameTxtBx.Text = string.Empty;
+            clientIDTxtBx.Text = string.Empty;
+            clientIDTxtBx.Text = string.Empty;
+            prdDaysLabel.Text = string.Empty;
+            prdStartDate.ResetText();
+            prdEndDate.ResetText();
+            prdTypeTxtBx.Text = string.Empty;
+            locationListBx.Text = string.Empty;
+        }
+
 
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -60,6 +122,30 @@ namespace HND_Database_Assignment
         {
             ProductionLocationForm prodLocationForm = new ProductionLocationForm();
             prodLocationForm.Show();
+        }
+
+        private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+
+        }
+
+        private void ProductionForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prdIDKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                load_production();
+            }
+        }
+
+        private void clearPrdBtn_Click(object sender, EventArgs e)
+        {
+            clearProductionFrm();
         }
     }
 }

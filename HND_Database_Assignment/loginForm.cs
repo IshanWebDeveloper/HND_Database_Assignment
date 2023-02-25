@@ -1,19 +1,23 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace HND_Database_Assignment
 {
     public partial class loginForm : Form
     {
+
+        private string userName { get; set; }
+        private string password { get; set; }
+
+        static readonly string con_string = "Data Source=ISHAN-PC\\SQLEXPRESS;Initial Catalog=film_production;Integrated Security=true";
+        SqlConnection con = new SqlConnection(con_string);
         public loginForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            MessageBox.Show("Welcome to Quiet Attic Database Managment System", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -25,11 +29,25 @@ namespace HND_Database_Assignment
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void loginBtn_Click(object sender, EventArgs e)
         {
-            HomePageForm home = new HomePageForm();
-            this.Hide();
-            home.Show();
+
+            try
+            {
+                if (userNameTxtBx.Text != null & passwordTxtBx.Text != null)
+                {
+
+                }
+                HomePageForm home = new HomePageForm(userName, password);
+                this.Hide();
+                home.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
 
         }
     }

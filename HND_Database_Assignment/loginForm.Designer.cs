@@ -58,7 +58,7 @@
             resources.ApplyResources(this.loginBtn, "loginBtn");
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.UseVisualStyleBackColor = true;
-            this.loginBtn.Click += new System.EventHandler(this.button1_Click);
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // pictureBox1
             // 
@@ -99,7 +99,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "loginForm";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
