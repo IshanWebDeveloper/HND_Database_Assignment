@@ -26,12 +26,13 @@ namespace HND_Database_Assignment
             try
             {
                 GlobalDatabaseCon.intitializeDBCon();
-                SqlCommand command = new SqlCommand("SELECT Production_ID, clientID, Client_Name, Production_Name, Production_Type, number_of_days FROM productions p INNER JOIN clients c on p.clientID = c.Client_ID  WHERE Production_ID=@pID", GlobalDatabaseCon.con);
+                SqlCommand command = new SqlCommand("SELECT Production_ID,  clientID, Client_Name, Production_Name, Production_Type, number_of_days FROM productions p INNER JOIN clients c on p.clientID = c.Client_ID   WHERE Production_ID=@pID", GlobalDatabaseCon.con);
                 command.Parameters.AddWithValue("@pID", Convert.ToString(prdIDTextBx.Text));
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
                     ProdID = Convert.ToInt16(reader[0]);
+                    addCustLink.Enabled = false;
                     editPrdBtn.Enabled = true;
                     deletePrdBtn.Enabled = true;
                     clearPrdBtn.Enabled = true;
@@ -40,6 +41,7 @@ namespace HND_Database_Assignment
                     prdNameTxtBx.Text = reader[3].ToString();
                     prdTypeTxtBx.Text = reader[4].ToString();
                     TotalProductionDays = Convert.ToInt16(reader[5]);
+                    filLocationListBox(ProdID);
                     prdDaysLabel.Text = TotalProductionDays.ToString();
 
 
@@ -73,6 +75,22 @@ namespace HND_Database_Assignment
 
         }
 
+        private void filLocationListBox(int productionID)
+        {
+            GlobalDatabaseCon.intitializeDBCon();
+            SqlCommand locationQuery = new SqlCommand("SELECT Location_Name FROM locations WHERE productionID=@prdID", GlobalDatabaseCon.con);
+            locationQuery.Parameters.AddWithValue("@prdID", productionID);
+            SqlDataReader reader = locationQuery.ExecuteReader();
+            locationListBx.Items.Clear();
+            while (reader.Read())
+            {
+                string locationsName = reader.GetString(0);
+                locationListBx.Items.Add(locationsName);
+            }
+
+            GlobalDatabaseCon.closeDBCon();
+        }
+
         private void clearProductionFrm()
         {
             prdIDTextBx.Text = string.Empty;
@@ -84,7 +102,7 @@ namespace HND_Database_Assignment
             prdStartDate.ResetText();
             prdEndDate.ResetText();
             prdTypeTxtBx.Text = string.Empty;
-            locationListBx.Text = string.Empty;
+            locationListBx.Items.Clear();
         }
 
 
@@ -139,7 +157,10 @@ namespace HND_Database_Assignment
         {
             if (e.KeyCode == Keys.Enter)
             {
+                e.SuppressKeyPress = true;
+                this.AcceptButton = null;
                 load_production();
+
             }
         }
 

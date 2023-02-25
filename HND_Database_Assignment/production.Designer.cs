@@ -90,6 +90,7 @@
             // 
             // prdIDTextBx
             // 
+            this.prdIDTextBx.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.prdIDTextBx.Location = new System.Drawing.Point(139, 34);
             this.prdIDTextBx.Name = "prdIDTextBx";
             this.prdIDTextBx.Size = new System.Drawing.Size(72, 22);
