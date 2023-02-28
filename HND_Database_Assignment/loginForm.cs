@@ -10,8 +10,7 @@ namespace HND_Database_Assignment
         private string userName { get; set; }
         private string password { get; set; }
 
-        static readonly string con_string = "Data Source=ISHAN-PC\\SQLEXPRESS;Initial Catalog=film_production;Integrated Security=true";
-        SqlConnection con = new SqlConnection(con_string);
+
         public loginForm()
         {
             InitializeComponent();
@@ -36,11 +35,15 @@ namespace HND_Database_Assignment
             {
                 if (userNameTxtBx.Text != null & passwordTxtBx.Text != null)
                 {
+                    userName = userNameTxtBx.Text;
+                    password = passwordTxtBx.Text;
+                    GlobalDatabaseCon.IntitializeDBCon();
+                    SqlCommand cmd = new SqlCommand("", GlobalDatabaseCon.GetConObj());
 
+                    HomePageForm home = new HomePageForm(userName, password);
+                    this.Hide();
+                    home.Show();
                 }
-                HomePageForm home = new HomePageForm(userName, password);
-                this.Hide();
-                home.Show();
             }
             catch (Exception ex)
             {

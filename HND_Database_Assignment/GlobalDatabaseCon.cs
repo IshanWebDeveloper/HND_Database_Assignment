@@ -6,18 +6,24 @@ namespace HND_Database_Assignment
     {
         private static readonly string con_string = "Data Source=ISHAN-PC\\SQLEXPRESS;Initial Catalog=film_production;Integrated Security=true";
 
-        public static SqlConnection con { get; set; }
+        private static SqlConnection Con { get; set; }
 
 
-        public static void intitializeDBCon()
+        public static void IntitializeDBCon()
         {
-            con = new SqlConnection(con_string);
-            con.Open();
+            Con = new SqlConnection(con_string);
+            Con.Open();
         }
 
-        public static void closeDBCon()
+        public static void CloseDBCon()
         {
-            con.Close();
+            Con.Close();
         }
+
+        public static SqlConnection GetConObj()
+        {
+            return Con;
+        }
+
     }
 }

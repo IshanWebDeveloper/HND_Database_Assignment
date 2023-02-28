@@ -248,7 +248,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.Location = new System.Drawing.Point(413, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(334, 29);
@@ -280,7 +280,7 @@
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(145, 26);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.logOutToolStripMenuItem1.Text = "Log Out";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
@@ -456,7 +456,7 @@
             this.totalPrdDayLabel.AutoSize = true;
             this.totalPrdDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalPrdDayLabel.ForeColor = System.Drawing.Color.OrangeRed;
-            this.totalPrdDayLabel.Location = new System.Drawing.Point(888, 22);
+            this.totalPrdDayLabel.Location = new System.Drawing.Point(1048, 25);
             this.totalPrdDayLabel.Name = "totalPrdDayLabel";
             this.totalPrdDayLabel.Size = new System.Drawing.Size(225, 25);
             this.totalPrdDayLabel.TabIndex = 30;
@@ -467,7 +467,7 @@
             this.prdDaysLabel.AutoSize = true;
             this.prdDaysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prdDaysLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.prdDaysLabel.Location = new System.Drawing.Point(1136, 25);
+            this.prdDaysLabel.Location = new System.Drawing.Point(1298, 28);
             this.prdDaysLabel.Name = "prdDaysLabel";
             this.prdDaysLabel.Size = new System.Drawing.Size(78, 22);
             this.prdDaysLabel.TabIndex = 31;

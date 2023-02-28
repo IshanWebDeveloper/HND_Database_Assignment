@@ -26,17 +26,19 @@ namespace HND_Database_Assignment
             Environment.Exit(0);
         }
 
-        private void load_production()
+        private void Load_production(int productionID)
         {
             try
             {
-                GlobalDatabaseCon.intitializeDBCon();
-                SqlCommand command = new SqlCommand("SELECT Production_ID,  clientID, Client_Name, Production_Name, Production_Type, number_of_days FROM productions p INNER JOIN clients c on p.clientID = c.Client_ID   WHERE Production_ID=@pID", GlobalDatabaseCon.con);
-                command.Parameters.AddWithValue("@pID", Convert.ToString(prdIDTextBx.Text));
+                GlobalDatabaseCon.IntitializeDBCon();
+                SqlCommand command = new SqlCommand("SELECT Production_ID,  clientID, Client_Name, Production_Name, Production_Type, number_of_days FROM productions p INNER JOIN clients c on p.clientID = c.Client_ID   WHERE Production_ID=@pID", GlobalDatabaseCon.GetConObj());
+                command.Parameters.AddWithValue("@pID", Convert.ToString(productionID));
                 SqlDataReader reader = command.ExecuteReader();
+
                 if (reader.Read())
                 {
                     ProdID = Convert.ToInt16(reader[0]);
+                    prdIDTextBx.Select(0, prdIDTextBx.TextLength);
                     addCustLink.Enabled = false;
                     editPrdBtn.Enabled = true;
                     deletePrdBtn.Enabled = true;
@@ -46,7 +48,7 @@ namespace HND_Database_Assignment
                     prdNameTxtBx.Text = reader[3].ToString();
                     prdTypeTxtBx.Text = reader[4].ToString();
                     TotalProductionDays = Convert.ToInt16(reader[5]);
-                    filLocationListBox(ProdID);
+                    fillLocationListBox(ProdID);
 
                     prdDaysLabel.Text = TotalProductionDays.ToString();
 
@@ -55,14 +57,20 @@ namespace HND_Database_Assignment
 
                     if (reader[1] == null)
                     {
+
                         addCustLink.Enabled = true;
                     }
 
-
+                    reader.Close();
+                    FillDataGridView(command);
                 }
                 else
                 {
-                    MessageBox.Show($"No record found for Production ID: {prdIDTextBx.Text}. You can add new record.");
+                    MessageBox.Show($"No record found for Production ID: {prdIDTextBx.Text}. You can add a new record.", "NO RECORD FOUND!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ProdID = productionID;
+                    clearProductionFrm();
+                    prdIDTextBx.Text = Convert.ToString(ProdID);
+                    prdIDTextBx.Select(0, prdIDTextBx.TextLength);
                     prdDaysLabel.Text = "";
                     addPrdBtn.Enabled = true;
                     addCustLink.Enabled = true;
@@ -70,10 +78,9 @@ namespace HND_Database_Assignment
                     deletePrdBtn.Enabled = false;
                     clearPrdBtn.Enabled = true;
 
+
                 }
-                GlobalDatabaseCon.closeDBCon();
-                reader.Close();
-                fillDataGridView(command);
+
             }
 
 
@@ -83,12 +90,18 @@ namespace HND_Database_Assignment
 
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                GlobalDatabaseCon.CloseDBCon();
+
+
+            }
 
         }
 
-        private void fillDataGridView(SqlCommand cmdQuery)
+        private void FillDataGridView(SqlCommand cmdQuery)
         {
-            GlobalDatabaseCon.intitializeDBCon();
+            GlobalDatabaseCon.IntitializeDBCon();
             SqlDataAdapter da = new SqlDataAdapter(cmdQuery);
             DataSet ds = new DataSet();
             DataTable dataTable = new DataTable();
@@ -96,15 +109,15 @@ namespace HND_Database_Assignment
             dataGridView1.DataSource = ds.Tables[0];
             da.Fill(dataTable);
 
-            GlobalDatabaseCon.closeDBCon();
+            GlobalDatabaseCon.CloseDBCon();
 
 
         }
 
-        private void filLocationListBox(int productionID)
+        private void fillLocationListBox(int productionID)
         {
-            GlobalDatabaseCon.intitializeDBCon();
-            SqlCommand locationQuery = new SqlCommand("SELECT Location_Name FROM locations WHERE productionID=@prdID", GlobalDatabaseCon.con);
+            GlobalDatabaseCon.IntitializeDBCon();
+            SqlCommand locationQuery = new SqlCommand("SELECT Location_Name FROM locations WHERE productionID=@prdID", GlobalDatabaseCon.GetConObj());
             locationQuery.Parameters.AddWithValue("@prdID", productionID);
             SqlDataReader reader = locationQuery.ExecuteReader();
             locationListBx.Items.Clear();
@@ -114,7 +127,7 @@ namespace HND_Database_Assignment
                 locationListBx.Items.Add(locationsName);
             }
 
-            GlobalDatabaseCon.closeDBCon();
+            GlobalDatabaseCon.CloseDBCon();
         }
 
         private void clearProductionFrm()
@@ -171,13 +184,14 @@ namespace HND_Database_Assignment
 
         private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Application.Exit();
             Application.Restart();
 
         }
 
         private void ProductionForm_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void prdIDKeyDown(object sender, KeyEventArgs e)
@@ -186,7 +200,7 @@ namespace HND_Database_Assignment
             {
                 e.SuppressKeyPress = true;
                 this.AcceptButton = null;
-                load_production();
+                Load_production(Convert.ToInt16(prdIDTextBx.Text));
 
             }
         }
