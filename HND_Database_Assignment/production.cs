@@ -43,6 +43,7 @@ namespace HND_Database_Assignment
                     prdIDTextBx.Select(0, prdIDTextBx.TextLength);
                     addCustLink.Enabled = false;
                     viewClientLink.Enabled = true;
+                    viewStfDetailsBtn.Enabled = true;
                     editPrdBtn.Enabled = true;
                     deletePrdBtn.Enabled = true;
                     clearPrdBtn.Enabled = true;
@@ -148,6 +149,7 @@ namespace HND_Database_Assignment
             prdIDTextBx.Text = string.Empty;
             ClientID = 0;
             viewClientLink.Enabled = false;
+            viewStfDetailsBtn.Enabled = false;
             clientNameTxtBx.Text = string.Empty;
             prdNameTxtBx.Text = string.Empty;
             clientIDTxtBx.Text = string.Empty;
@@ -249,6 +251,12 @@ namespace HND_Database_Assignment
         {
             ClientForm clientForm = new ClientForm(ClientID);
             clientForm.Show();
+        }
+
+        private void viewStfDetailsBtn_Click(object sender, EventArgs e)
+        {
+            ProductionStaffForm prdStaff = new ProductionStaffForm();
+            prdStaff.Show();
         }
     }
 }
