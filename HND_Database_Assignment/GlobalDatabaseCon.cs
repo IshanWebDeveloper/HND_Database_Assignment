@@ -26,5 +26,10 @@ namespace HND_Database_Assignment
             return con;
         }
 
+        public static string GetConnectionString()
+        {
+            return con_string;
+        }
+
     }
 }

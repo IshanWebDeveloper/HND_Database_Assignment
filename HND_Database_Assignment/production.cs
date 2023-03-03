@@ -10,6 +10,7 @@ namespace HND_Database_Assignment
     {
         private int ProdID { get; set; }
         private int ClientID { get; set; }
+        private int LocationID { get; set; }
         private int TotalProductionDays { get; set; }
 
         public ProductionForm()
@@ -124,13 +125,14 @@ namespace HND_Database_Assignment
             try
             {
                 GlobalDatabaseCon.IntitializeDBCon();
-                SqlCommand locationQuery = new SqlCommand("SELECT Location_Name FROM locations WHERE productionID=@prdID", GlobalDatabaseCon.GetConObj());
+                SqlCommand locationQuery = new SqlCommand("SELECT Location_Name,Location_ID  FROM locations WHERE productionID=@prdID", GlobalDatabaseCon.GetConObj());
                 locationQuery.Parameters.AddWithValue("@prdID", productionID);
                 SqlDataReader reader = locationQuery.ExecuteReader();
                 locationListBx.Items.Clear();
                 while (reader.Read())
                 {
                     string locationsName = reader.GetString(0);
+                    LocationID = (int)(reader[1]);
                     locationListBx.Items.Add(locationsName);
                 }
 
@@ -204,7 +206,7 @@ namespace HND_Database_Assignment
 
         private void addLocatonLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ProductionLocationForm prodLocationForm = new ProductionLocationForm();
+            ProductionLocationForm prodLocationForm = new ProductionLocationForm(ProdID);
             prodLocationForm.Show();
         }
 
@@ -255,7 +257,7 @@ namespace HND_Database_Assignment
 
         private void viewStfDetailsBtn_Click(object sender, EventArgs e)
         {
-            ProductionStaffForm prdStaff = new ProductionStaffForm();
+            ProductionStaffForm prdStaff = new ProductionStaffForm(ProdID);
             prdStaff.Show();
         }
     }

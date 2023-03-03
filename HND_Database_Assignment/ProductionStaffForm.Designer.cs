@@ -32,11 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.staffProducIDTxtBx = new System.Windows.Forms.TextBox();
+            this.staffTypeCmboBx = new System.Windows.Forms.ComboBox();
+            this.noEmpNumeric = new System.Windows.Forms.NumericUpDown();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.feeTxtBx = new System.Windows.Forms.TextBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,10 +53,13 @@
             this.userDocumentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button6 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.calcTotalEmCompBtn = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.noEmpNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -99,30 +102,30 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Fee per production day";
             // 
-            // textBox1
+            // staffProducIDTxtBx
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(273, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 30);
-            this.textBox1.TabIndex = 4;
+            this.staffProducIDTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffProducIDTxtBx.Location = new System.Drawing.Point(273, 40);
+            this.staffProducIDTxtBx.Name = "staffProducIDTxtBx";
+            this.staffProducIDTxtBx.Size = new System.Drawing.Size(100, 30);
+            this.staffProducIDTxtBx.TabIndex = 4;
             // 
-            // comboBox1
+            // staffTypeCmboBx
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(273, 129);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 33);
-            this.comboBox1.TabIndex = 5;
+            this.staffTypeCmboBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffTypeCmboBx.FormattingEnabled = true;
+            this.staffTypeCmboBx.Location = new System.Drawing.Point(273, 129);
+            this.staffTypeCmboBx.Name = "staffTypeCmboBx";
+            this.staffTypeCmboBx.Size = new System.Drawing.Size(121, 33);
+            this.staffTypeCmboBx.TabIndex = 5;
             // 
-            // numericUpDown1
+            // noEmpNumeric
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(273, 226);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(64, 30);
-            this.numericUpDown1.TabIndex = 6;
+            this.noEmpNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noEmpNumeric.Location = new System.Drawing.Point(273, 226);
+            this.noEmpNumeric.Name = "noEmpNumeric";
+            this.noEmpNumeric.Size = new System.Drawing.Size(121, 30);
+            this.noEmpNumeric.TabIndex = 6;
             // 
             // linkLabel1
             // 
@@ -134,13 +137,13 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Add Staff Type";
             // 
-            // textBox2
+            // feeTxtBx
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(273, 324);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 30);
-            this.textBox2.TabIndex = 8;
+            this.feeTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feeTxtBx.Location = new System.Drawing.Point(273, 324);
+            this.feeTxtBx.Name = "feeTxtBx";
+            this.feeTxtBx.Size = new System.Drawing.Size(121, 30);
+            this.feeTxtBx.TabIndex = 8;
             // 
             // linkLabel2
             // 
@@ -155,11 +158,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(535, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(533, 64);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(352, 321);
+            this.dataGridView1.Size = new System.Drawing.Size(514, 159);
             this.dataGridView1.TabIndex = 10;
             // 
             // label5
@@ -175,7 +178,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(31, 392);
+            this.button1.Location = new System.Drawing.Point(35, 432);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 48);
             this.button1.TabIndex = 12;
@@ -185,7 +188,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(198, 432);
+            this.button2.Location = new System.Drawing.Point(202, 472);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 48);
             this.button2.TabIndex = 13;
@@ -195,7 +198,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(374, 392);
+            this.button3.Location = new System.Drawing.Point(378, 432);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 48);
             this.button3.TabIndex = 14;
@@ -205,7 +208,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(31, 457);
+            this.button4.Location = new System.Drawing.Point(35, 497);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(113, 48);
             this.button4.TabIndex = 15;
@@ -215,7 +218,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(374, 457);
+            this.button5.Location = new System.Drawing.Point(378, 497);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(113, 48);
             this.button5.TabIndex = 16;
@@ -231,7 +234,7 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(899, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1091, 28);
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -240,7 +243,7 @@
             this.logOutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem1});
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.logOutToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem1
@@ -255,7 +258,7 @@
             this.userGuideToolStripMenuItem,
             this.userDocumentationToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // userGuideToolStripMenuItem
@@ -275,7 +278,7 @@
             this.exitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeProgramToolStripMenuItem});
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // closeProgramToolStripMenuItem
@@ -284,22 +287,45 @@
             this.closeProgramToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.closeProgramToolStripMenuItem.Text = "Close Program";
             // 
-            // button6
+            // calcTotalEmCompBtn
             // 
-            this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.button6.Location = new System.Drawing.Point(592, 421);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(239, 73);
-            this.button6.TabIndex = 25;
-            this.button6.Text = "Calculate Total Employee Compensation";
-            this.button6.UseVisualStyleBackColor = true;
+            this.calcTotalEmCompBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calcTotalEmCompBtn.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.calcTotalEmCompBtn.Location = new System.Drawing.Point(640, 483);
+            this.calcTotalEmCompBtn.Name = "calcTotalEmCompBtn";
+            this.calcTotalEmCompBtn.Size = new System.Drawing.Size(301, 73);
+            this.calcTotalEmCompBtn.TabIndex = 25;
+            this.calcTotalEmCompBtn.Text = "Calculate Total Employee Compensation";
+            this.calcTotalEmCompBtn.UseVisualStyleBackColor = true;
+            this.calcTotalEmCompBtn.Click += new System.EventHandler(this.calcTotalEmCompBtn_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(533, 303);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(514, 159);
+            this.dataGridView2.TabIndex = 26;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(530, 262);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(307, 25);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Total Employee Compensation";
             // 
             // ProductionStaffForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(899, 525);
-            this.Controls.Add(this.button6);
+            this.ClientSize = new System.Drawing.Size(1091, 582);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.calcTotalEmCompBtn);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -309,11 +335,11 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.feeTxtBx);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.noEmpNumeric);
+            this.Controls.Add(this.staffTypeCmboBx);
+            this.Controls.Add(this.staffProducIDTxtBx);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -321,10 +347,11 @@
             this.Name = "ProductionStaffForm";
             this.Text = "Production Staff Details";
             this.Load += new System.EventHandler(this.ProductionStaffForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noEmpNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,11 +363,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox staffProducIDTxtBx;
+        private System.Windows.Forms.ComboBox staffTypeCmboBx;
+        private System.Windows.Forms.NumericUpDown noEmpNumeric;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox feeTxtBx;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
@@ -357,6 +384,8 @@
         private System.Windows.Forms.ToolStripMenuItem userDocumentationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeProgramToolStripMenuItem;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button calcTotalEmCompBtn;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label6;
     }
 }

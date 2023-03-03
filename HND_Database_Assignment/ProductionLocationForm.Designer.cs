@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.locationPrdIDCmBoBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -47,7 +47,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.locationNameCmboBx = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -67,14 +67,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Production ID";
             // 
-            // comboBox1
+            // locationPrdIDCmBoBox
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(190, 36);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(87, 28);
-            this.comboBox1.TabIndex = 2;
+            this.locationPrdIDCmBoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationPrdIDCmBoBox.FormattingEnabled = true;
+            this.locationPrdIDCmBoBox.Location = new System.Drawing.Point(190, 36);
+            this.locationPrdIDCmBoBox.Name = "locationPrdIDCmBoBox";
+            this.locationPrdIDCmBoBox.Size = new System.Drawing.Size(87, 28);
+            this.locationPrdIDCmBoBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -132,7 +132,7 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(948, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(948, 28);
             this.menuStrip1.TabIndex = 21;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -225,14 +225,16 @@
             this.button4.Text = "CLEAR";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // locationNameCmboBx
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(187, 108);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(192, 28);
-            this.comboBox2.TabIndex = 26;
+            this.locationNameCmboBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationNameCmboBx.FormattingEnabled = true;
+            this.locationNameCmboBx.Location = new System.Drawing.Point(187, 108);
+            this.locationNameCmboBx.Name = "locationNameCmboBx";
+            this.locationNameCmboBx.Size = new System.Drawing.Size(192, 28);
+            this.locationNameCmboBx.TabIndex = 0;
+            this.locationNameCmboBx.TabStop = false;
+            this.locationNameCmboBx.SelectionChangeCommitted += new System.EventHandler(this.locationNameCmboBx_SelectionChangeCommitted);
             // 
             // label1
             // 
@@ -294,7 +296,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.locationNameCmboBx);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -305,7 +307,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.locationPrdIDCmBoBox);
             this.Controls.Add(this.label2);
             this.Name = "ProductionLocationForm";
             this.Text = "Production Location Details";
@@ -320,7 +322,7 @@
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox locationPrdIDCmBoBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
@@ -338,7 +340,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox locationNameCmboBx;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
