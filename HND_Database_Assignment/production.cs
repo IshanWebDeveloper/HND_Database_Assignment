@@ -9,7 +9,8 @@ namespace HND_Database_Assignment
 
     {
         private int ProdID { get; set; }
-        public int TotalProductionDays { get; set; }
+        private int ClientID { get; set; }
+        private int TotalProductionDays { get; set; }
 
         public ProductionForm()
         {
@@ -38,8 +39,10 @@ namespace HND_Database_Assignment
                 if (reader.Read())
                 {
                     ProdID = Convert.ToInt16(reader[0]);
+                    ClientID = Convert.ToInt16(reader[1]);
                     prdIDTextBx.Select(0, prdIDTextBx.TextLength);
                     addCustLink.Enabled = false;
+                    viewClientLink.Enabled = true;
                     editPrdBtn.Enabled = true;
                     deletePrdBtn.Enabled = true;
                     clearPrdBtn.Enabled = true;
@@ -48,7 +51,7 @@ namespace HND_Database_Assignment
                     prdNameTxtBx.Text = reader[3].ToString();
                     prdTypeTxtBx.Text = reader[4].ToString();
                     TotalProductionDays = Convert.ToInt16(reader[5]);
-                    fillLocationListBox(ProdID);
+                    FillLocationListBox(ProdID);
 
                     prdDaysLabel.Text = TotalProductionDays.ToString();
 
@@ -73,6 +76,7 @@ namespace HND_Database_Assignment
                     prdIDTextBx.Select(0, prdIDTextBx.TextLength);
                     prdDaysLabel.Text = "";
                     addPrdBtn.Enabled = true;
+                    viewClientLink.Enabled = false;
                     addCustLink.Enabled = true;
                     editPrdBtn.Enabled = false;
                     deletePrdBtn.Enabled = false;
@@ -114,25 +118,36 @@ namespace HND_Database_Assignment
 
         }
 
-        private void fillLocationListBox(int productionID)
+        private void FillLocationListBox(int productionID)
         {
-            GlobalDatabaseCon.IntitializeDBCon();
-            SqlCommand locationQuery = new SqlCommand("SELECT Location_Name FROM locations WHERE productionID=@prdID", GlobalDatabaseCon.GetConObj());
-            locationQuery.Parameters.AddWithValue("@prdID", productionID);
-            SqlDataReader reader = locationQuery.ExecuteReader();
-            locationListBx.Items.Clear();
-            while (reader.Read())
+            try
             {
-                string locationsName = reader.GetString(0);
-                locationListBx.Items.Add(locationsName);
-            }
+                GlobalDatabaseCon.IntitializeDBCon();
+                SqlCommand locationQuery = new SqlCommand("SELECT Location_Name FROM locations WHERE productionID=@prdID", GlobalDatabaseCon.GetConObj());
+                locationQuery.Parameters.AddWithValue("@prdID", productionID);
+                SqlDataReader reader = locationQuery.ExecuteReader();
+                locationListBx.Items.Clear();
+                while (reader.Read())
+                {
+                    string locationsName = reader.GetString(0);
+                    locationListBx.Items.Add(locationsName);
+                }
 
-            GlobalDatabaseCon.CloseDBCon();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally { GlobalDatabaseCon.CloseDBCon(); }
+
         }
 
         private void clearProductionFrm()
         {
             prdIDTextBx.Text = string.Empty;
+            ClientID = 0;
+            viewClientLink.Enabled = false;
             clientNameTxtBx.Text = string.Empty;
             prdNameTxtBx.Text = string.Empty;
             clientIDTxtBx.Text = string.Empty;
@@ -148,8 +163,17 @@ namespace HND_Database_Assignment
 
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClientForm clientForm = new ClientForm();
-            clientForm.Show();
+            if (ClientID > 0)
+            {
+                ClientForm clientForm = new ClientForm(ClientID);
+                clientForm.Show();
+
+            }
+            else
+            {
+                ClientForm clF = new ClientForm();
+                clF.Show();
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -192,15 +216,26 @@ namespace HND_Database_Assignment
         private void ProductionForm_Load(object sender, EventArgs e)
         {
             FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         private void prdIDKeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                e.SuppressKeyPress = true;
-                this.AcceptButton = null;
-                Load_production(Convert.ToInt16(prdIDTextBx.Text));
+
+                try
+                {
+                    e.SuppressKeyPress = true;
+                    this.AcceptButton = null;
+                    Load_production(Convert.ToInt16(prdIDTextBx.Text));
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show($"{ex.Message}. Please enter only numbers!", "WRONG INPUT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
             }
         }
@@ -208,6 +243,12 @@ namespace HND_Database_Assignment
         private void clearPrdBtn_Click(object sender, EventArgs e)
         {
             clearProductionFrm();
+        }
+
+        private void viewClientLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClientForm clientForm = new ClientForm(ClientID);
+            clientForm.Show();
         }
     }
 }
