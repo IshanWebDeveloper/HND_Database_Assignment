@@ -25,9 +25,9 @@ namespace HND_Database_Assignment
                 {
                     InitializeComponent();
                     this.ProdID = ProdID;
-                    loadLocationDetails();
-                    fillProductionIDComboBox();
-                    fillLocationNameComboBox();
+                    LoadLocationDetails();
+                    FillProductionIDComboBox();
+                    FillLocationNameComboBox();
                 }
                 catch (Exception ex)
                 {
@@ -38,13 +38,13 @@ namespace HND_Database_Assignment
 
         }
 
-        private void loadLocationDetails()
+        private void LoadLocationDetails()
         {
             GlobalDatabaseCon.IntitializeDBCon();
-            SqlCommand sqlCommand = new SqlCommand("SELECT ");
+            //SqlCommand sqlCommand = new SqlCommand("SELECT ");
         }
 
-        private void fillProductionIDComboBox()
+        private void FillProductionIDComboBox()
         {
 
             GlobalDatabaseCon.IntitializeDBCon();
@@ -59,7 +59,7 @@ namespace HND_Database_Assignment
 
         }
 
-        private void fillLocationNameComboBox()
+        private void FillLocationNameComboBox()
         {
 
             if (ProdID > 0)
@@ -76,12 +76,6 @@ namespace HND_Database_Assignment
                 locationNameCmboBx.ValueMember = "Location_Name";
                 GlobalDatabaseCon.CloseDBCon();
             }
-
-        }
-
-
-        private void label3_Click(object sender, EventArgs e)
-        {
 
         }
 

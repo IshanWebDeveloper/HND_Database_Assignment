@@ -12,6 +12,7 @@ namespace HND_Database_Assignment
         private int ClientID { get; set; }
         private string ClientName { get; set; }
         private int LocationID { get; set; }
+
         private int TotalProductionDays { get; set; }
 
 
@@ -24,12 +25,12 @@ namespace HND_Database_Assignment
 
         }
 
-        private void closeProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CloseProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
 
-        public void loadWithClientData(int cID, string clientName)
+        public void LoadWithClientData(int cID, string clientName)
         {
             try
             {
@@ -53,7 +54,7 @@ namespace HND_Database_Assignment
             try
             {
                 GlobalDatabaseCon.IntitializeDBCon();
-                SqlCommand command = new SqlCommand("  SELECT Production_ID,  ClientID, Client_Name, Production_Name, Production_Type, Number_of_Production_Days FROM Productions p INNER JOIN Clients c on p.ClientID = c.Client_ID   WHERE Production_ID=@pID", GlobalDatabaseCon.GetConObj());
+                SqlCommand command = new SqlCommand("SELECT ProductionID,  p.ClientID, ClientName, ProductionName, ProductionType, NumberOfPrdDays FROM FilmProductions p INNER JOIN Clients c on p.ClientID = c.ClientID   WHERE ProductionID=@pID", GlobalDatabaseCon.GetConObj());
                 command.Parameters.AddWithValue("@pID", Convert.ToString(productionID));
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -182,7 +183,7 @@ namespace HND_Database_Assignment
         }
 
 
-        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ClientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (ClientID > 0)
             {
@@ -197,37 +198,37 @@ namespace HND_Database_Assignment
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ClientForm addClient = new ClientForm();
             addClient.Show();
         }
 
-        private void addStaffToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddStaffToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProductionStaffForm prodStaff = new ProductionStaffForm();
             prodStaff.Show();
         }
 
-        private void productionProperitesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ProductionProperitesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProductionPropertiesForm prodProp = new ProductionPropertiesForm();
             prodProp.Show();
         }
 
-        private void locationsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LocationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProductionLocationForm prodLocationForm = new ProductionLocationForm();
             prodLocationForm.Show();
         }
 
-        private void addLocatonLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void AddLocatonLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ProductionLocationForm prodLocationForm = new ProductionLocationForm(ProdID);
             prodLocationForm.Show();
         }
 
-        private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void LogOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
             Application.Restart();
@@ -240,7 +241,7 @@ namespace HND_Database_Assignment
 
         }
 
-        private void prdIDKeyDown(object sender, KeyEventArgs e)
+        private void PrdIDKeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

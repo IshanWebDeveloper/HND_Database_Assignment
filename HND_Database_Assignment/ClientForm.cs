@@ -66,8 +66,8 @@ namespace HND_Database_Assignment
                 try
                 {
                     GlobalDatabaseCon.IntitializeDBCon();
-                    SqlCommand clientQuery = new SqlCommand("SELECT * FROM clients WHERE Client_ID=@cliID", GlobalDatabaseCon.GetConObj());
-                    SqlCommand clientProductionQuery = new SqlCommand("SELECT Client_ID, Production_ID, Production_Name FROM clients c inner join productions p on c.Client_ID= p.clientID where Client_ID=@clientID", GlobalDatabaseCon.GetConObj());
+                    SqlCommand clientQuery = new SqlCommand("SELECT * FROM Clients WHERE ClientID=@cliID", GlobalDatabaseCon.GetConObj());
+                    SqlCommand clientProductionQuery = new SqlCommand("SELECT c.ClientID, ProductionID, ProductionName FROM Clients c inner join FilmProductions p on c.ClientID= p.clientID where c.ClientID=@clientID", GlobalDatabaseCon.GetConObj());
                     clientQuery.Parameters.AddWithValue("@cliID", ClientID);
                     clientProductionQuery.Parameters.AddWithValue("@clientID", ClientID);
                     SqlDataReader reader = clientQuery.ExecuteReader();
@@ -113,6 +113,7 @@ namespace HND_Database_Assignment
                 e.SuppressKeyPress = true;
                 this.AcceptButton = null;
                 ClientID = Convert.ToInt16(clientIDTxtBx.Text);
+                MessageBox.Show($"Message Box {ClientID}");
 
                 LoadClientForm();
                 clientIDTxtBx.Select(0, clientIDTxtBx.TextLength);
@@ -131,7 +132,7 @@ namespace HND_Database_Assignment
             ProductionForm.Focus();
             this.Hide();
             ProductionForm.clearProductionFrm();
-            ProductionForm.loadWithClientData(ClientID, ClientName);
+            ProductionForm.LoadWithClientData(ClientID, ClientName);
         }
     }
 }

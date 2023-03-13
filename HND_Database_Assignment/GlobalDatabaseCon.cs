@@ -6,7 +6,7 @@ namespace HND_Database_Assignment
 {
     public static class GlobalDatabaseCon
     {
-        private static readonly string con_string = "Data Source=ISHAN-PC\\SQLEXPRESS;Initial Catalog=film_production;Integrated Security=true";
+        private static readonly string con_string = "Data Source=ISHAN-PC\\SQLEXPRESS;Initial Catalog=QuietAtticFilmProductions;Integrated Security=true";
         private static string con_stringWithSQLAuth;
 
         private static SqlConnection con { get; set; }

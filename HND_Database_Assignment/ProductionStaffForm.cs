@@ -7,9 +7,9 @@ namespace HND_Database_Assignment
 {
     public partial class ProductionStaffForm : Form
     {
-        private int ProducID;
+        private int ProducID { get; set; }
+        private int NoOfProductionDays { get; set; }
 
-        private int NoOfProductionDays;
         public ProductionStaffForm()
         {
             InitializeComponent();
