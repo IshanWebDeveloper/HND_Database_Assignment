@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ProductionID = new System.Windows.Forms.Label();
             this.prdIDTextBx = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,12 +64,9 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addLocatonLink = new System.Windows.Forms.LinkLabel();
-            this.calcProdCostBtn = new System.Windows.Forms.Button();
             this.prdTypeTxtBx = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.prdStartDate = new System.Windows.Forms.DateTimePicker();
-            this.prdEndDate = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
             this.viewStfDetailsBtn = new System.Windows.Forms.Button();
             this.totalPrdDayLabel = new System.Windows.Forms.Label();
             this.prdDaysLabel = new System.Windows.Forms.Label();
@@ -93,7 +90,7 @@
             // prdIDTextBx
             // 
             this.prdIDTextBx.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.prdIDTextBx.Location = new System.Drawing.Point(164, 31);
+            this.prdIDTextBx.Location = new System.Drawing.Point(186, 31);
             this.prdIDTextBx.Name = "prdIDTextBx";
             this.prdIDTextBx.Size = new System.Drawing.Size(72, 22);
             this.prdIDTextBx.TabIndex = 0;
@@ -111,7 +108,7 @@
             // 
             // prdNameTxtBx
             // 
-            this.prdNameTxtBx.Location = new System.Drawing.Point(164, 163);
+            this.prdNameTxtBx.Location = new System.Drawing.Point(186, 163);
             this.prdNameTxtBx.Name = "prdNameTxtBx";
             this.prdNameTxtBx.Size = new System.Drawing.Size(247, 22);
             this.prdNameTxtBx.TabIndex = 4;
@@ -120,7 +117,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 312);
+            this.label2.Location = new System.Drawing.Point(19, 272);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 16);
             this.label2.TabIndex = 4;
@@ -128,7 +125,7 @@
             // 
             // clientIDTxtBx
             // 
-            this.clientIDTxtBx.Location = new System.Drawing.Point(164, 72);
+            this.clientIDTxtBx.Location = new System.Drawing.Point(186, 72);
             this.clientIDTxtBx.Name = "clientIDTxtBx";
             this.clientIDTxtBx.Size = new System.Drawing.Size(72, 22);
             this.clientIDTxtBx.TabIndex = 2;
@@ -155,9 +152,8 @@
             // 
             // addPrdBtn
             // 
-            this.addPrdBtn.Enabled = false;
             this.addPrdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPrdBtn.Location = new System.Drawing.Point(58, 477);
+            this.addPrdBtn.Location = new System.Drawing.Point(23, 423);
             this.addPrdBtn.Name = "addPrdBtn";
             this.addPrdBtn.Size = new System.Drawing.Size(150, 56);
             this.addPrdBtn.TabIndex = 9;
@@ -168,7 +164,7 @@
             // 
             this.clearPrdBtn.Enabled = false;
             this.clearPrdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearPrdBtn.Location = new System.Drawing.Point(1226, 477);
+            this.clearPrdBtn.Location = new System.Drawing.Point(1031, 423);
             this.clearPrdBtn.Name = "clearPrdBtn";
             this.clearPrdBtn.Size = new System.Drawing.Size(150, 56);
             this.clearPrdBtn.TabIndex = 13;
@@ -178,35 +174,36 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(473, 61);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.Location = new System.Drawing.Point(483, 72);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(926, 313);
+            this.dataGridView1.Size = new System.Drawing.Size(698, 231);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // addCustLink
             // 
             this.addCustLink.AutoSize = true;
             this.addCustLink.Enabled = false;
-            this.addCustLink.Location = new System.Drawing.Point(359, 123);
+            this.addCustLink.Location = new System.Drawing.Point(374, 120);
             this.addCustLink.Name = "addCustLink";
             this.addCustLink.Size = new System.Drawing.Size(92, 16);
             this.addCustLink.TabIndex = 13;
@@ -217,7 +214,7 @@
             // searchPrdBtn
             // 
             this.searchPrdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPrdBtn.Location = new System.Drawing.Point(350, 477);
+            this.searchPrdBtn.Location = new System.Drawing.Point(263, 423);
             this.searchPrdBtn.Name = "searchPrdBtn";
             this.searchPrdBtn.Size = new System.Drawing.Size(150, 56);
             this.searchPrdBtn.TabIndex = 10;
@@ -228,7 +225,7 @@
             // 
             this.editPrdBtn.Enabled = false;
             this.editPrdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editPrdBtn.Location = new System.Drawing.Point(642, 477);
+            this.editPrdBtn.Location = new System.Drawing.Point(503, 423);
             this.editPrdBtn.Name = "editPrdBtn";
             this.editPrdBtn.Size = new System.Drawing.Size(150, 56);
             this.editPrdBtn.TabIndex = 11;
@@ -239,7 +236,7 @@
             // 
             this.deletePrdBtn.Enabled = false;
             this.deletePrdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deletePrdBtn.Location = new System.Drawing.Point(934, 477);
+            this.deletePrdBtn.Location = new System.Drawing.Point(743, 423);
             this.deletePrdBtn.Name = "deletePrdBtn";
             this.deletePrdBtn.Size = new System.Drawing.Size(150, 56);
             this.deletePrdBtn.TabIndex = 12;
@@ -250,7 +247,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 354);
+            this.label5.Location = new System.Drawing.Point(19, 314);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 16);
             this.label5.TabIndex = 17;
@@ -277,7 +274,7 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1420, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1207, 30);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -397,7 +394,7 @@
             // addLocatonLink
             // 
             this.addLocatonLink.AutoSize = true;
-            this.addLocatonLink.Location = new System.Drawing.Point(359, 354);
+            this.addLocatonLink.Location = new System.Drawing.Point(374, 314);
             this.addLocatonLink.Name = "addLocatonLink";
             this.addLocatonLink.Size = new System.Drawing.Size(86, 16);
             this.addLocatonLink.TabIndex = 21;
@@ -405,19 +402,9 @@
             this.addLocatonLink.Text = "Add Location";
             this.addLocatonLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addLocatonLink_LinkClicked);
             // 
-            // calcProdCostBtn
-            // 
-            this.calcProdCostBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calcProdCostBtn.Location = new System.Drawing.Point(1028, 387);
-            this.calcProdCostBtn.Name = "calcProdCostBtn";
-            this.calcProdCostBtn.Size = new System.Drawing.Size(371, 61);
-            this.calcProdCostBtn.TabIndex = 15;
-            this.calcProdCostBtn.Text = "Calculate Total Production Cost";
-            this.calcProdCostBtn.UseVisualStyleBackColor = true;
-            // 
             // prdTypeTxtBx
             // 
-            this.prdTypeTxtBx.Location = new System.Drawing.Point(164, 306);
+            this.prdTypeTxtBx.Location = new System.Drawing.Point(186, 266);
             this.prdTypeTxtBx.Name = "prdTypeTxtBx";
             this.prdTypeTxtBx.Size = new System.Drawing.Size(247, 22);
             this.prdTypeTxtBx.TabIndex = 7;
@@ -428,40 +415,23 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(20, 216);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 16);
+            this.label7.Size = new System.Drawing.Size(160, 32);
             this.label7.TabIndex = 24;
-            this.label7.Text = "Start Date";
+            this.label7.Text = "Number of Production \r\nDays";
             // 
             // prdStartDate
             // 
-            this.prdStartDate.Location = new System.Drawing.Point(164, 210);
+            this.prdStartDate.Location = new System.Drawing.Point(186, 216);
             this.prdStartDate.Name = "prdStartDate";
             this.prdStartDate.Size = new System.Drawing.Size(247, 22);
             this.prdStartDate.TabIndex = 5;
-            // 
-            // prdEndDate
-            // 
-            this.prdEndDate.Location = new System.Drawing.Point(164, 252);
-            this.prdEndDate.Name = "prdEndDate";
-            this.prdEndDate.Size = new System.Drawing.Size(247, 22);
-            this.prdEndDate.TabIndex = 6;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(20, 258);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 16);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "End Date";
             // 
             // viewStfDetailsBtn
             // 
             this.viewStfDetailsBtn.Enabled = false;
             this.viewStfDetailsBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.viewStfDetailsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewStfDetailsBtn.Location = new System.Drawing.Point(473, 387);
+            this.viewStfDetailsBtn.Location = new System.Drawing.Point(483, 323);
             this.viewStfDetailsBtn.Name = "viewStfDetailsBtn";
             this.viewStfDetailsBtn.Size = new System.Drawing.Size(228, 49);
             this.viewStfDetailsBtn.TabIndex = 14;
@@ -474,7 +444,7 @@
             this.totalPrdDayLabel.AutoSize = true;
             this.totalPrdDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalPrdDayLabel.ForeColor = System.Drawing.Color.OrangeRed;
-            this.totalPrdDayLabel.Location = new System.Drawing.Point(1048, 25);
+            this.totalPrdDayLabel.Location = new System.Drawing.Point(834, 27);
             this.totalPrdDayLabel.Name = "totalPrdDayLabel";
             this.totalPrdDayLabel.Size = new System.Drawing.Size(225, 25);
             this.totalPrdDayLabel.TabIndex = 30;
@@ -485,7 +455,7 @@
             this.prdDaysLabel.AutoSize = true;
             this.prdDaysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prdDaysLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.prdDaysLabel.Location = new System.Drawing.Point(1298, 28);
+            this.prdDaysLabel.Location = new System.Drawing.Point(1103, 30);
             this.prdDaysLabel.Name = "prdDaysLabel";
             this.prdDaysLabel.Size = new System.Drawing.Size(78, 22);
             this.prdDaysLabel.TabIndex = 31;
@@ -496,14 +466,14 @@
             this.locationListBx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.locationListBx.FormattingEnabled = true;
             this.locationListBx.ItemHeight = 16;
-            this.locationListBx.Location = new System.Drawing.Point(164, 347);
+            this.locationListBx.Location = new System.Drawing.Point(186, 314);
             this.locationListBx.Name = "locationListBx";
             this.locationListBx.Size = new System.Drawing.Size(181, 82);
             this.locationListBx.TabIndex = 32;
             // 
             // clientNameTxtBx
             // 
-            this.clientNameTxtBx.Location = new System.Drawing.Point(164, 120);
+            this.clientNameTxtBx.Location = new System.Drawing.Point(186, 120);
             this.clientNameTxtBx.Name = "clientNameTxtBx";
             this.clientNameTxtBx.Size = new System.Drawing.Size(172, 22);
             this.clientNameTxtBx.TabIndex = 33;
@@ -512,7 +482,7 @@
             // 
             this.viewClientLink.AutoSize = true;
             this.viewClientLink.Enabled = false;
-            this.viewClientLink.Location = new System.Drawing.Point(359, 75);
+            this.viewClientLink.Location = new System.Drawing.Point(374, 72);
             this.viewClientLink.Name = "viewClientLink";
             this.viewClientLink.Size = new System.Drawing.Size(72, 16);
             this.viewClientLink.TabIndex = 34;
@@ -522,21 +492,18 @@
             // 
             // ProductionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1420, 561);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1207, 502);
             this.Controls.Add(this.viewClientLink);
             this.Controls.Add(this.clientNameTxtBx);
             this.Controls.Add(this.locationListBx);
             this.Controls.Add(this.prdDaysLabel);
             this.Controls.Add(this.totalPrdDayLabel);
             this.Controls.Add(this.viewStfDetailsBtn);
-            this.Controls.Add(this.prdEndDate);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.prdStartDate);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.prdTypeTxtBx);
-            this.Controls.Add(this.calcProdCostBtn);
             this.Controls.Add(this.addLocatonLink);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -558,7 +525,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ProductionForm";
-            this.Text = "Film Production Details";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.ProductionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -593,7 +560,6 @@
         private System.Windows.Forms.ToolStripMenuItem userDocumentationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.LinkLabel addLocatonLink;
-        private System.Windows.Forms.Button calcProdCostBtn;
         private System.Windows.Forms.ToolStripMenuItem goToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addStaffToolStripMenuItem;
@@ -601,8 +567,6 @@
         private System.Windows.Forms.TextBox prdTypeTxtBx;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker prdStartDate;
-        private System.Windows.Forms.DateTimePicker prdEndDate;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem productionProperitesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem locationsToolStripMenuItem;
         private System.Windows.Forms.Button viewStfDetailsBtn;

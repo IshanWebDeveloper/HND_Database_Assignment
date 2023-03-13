@@ -43,6 +43,7 @@
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.goToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addProductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addStaffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addStaffTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewStaffDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,8 +59,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.addProductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button5 = new System.Windows.Forms.Button();
+            this.addPrdBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -208,6 +208,12 @@
             this.goToToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.goToToolStripMenuItem.Text = "Go To";
             // 
+            // addProductionToolStripMenuItem
+            // 
+            this.addProductionToolStripMenuItem.Name = "addProductionToolStripMenuItem";
+            this.addProductionToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.addProductionToolStripMenuItem.Text = "Add Production";
+            // 
             // addStaffToolStripMenuItem
             // 
             this.addStaffToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -325,29 +331,23 @@
             this.button4.Text = "CLEAR";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // addProductionToolStripMenuItem
+            // addPrdBtn
             // 
-            this.addProductionToolStripMenuItem.Name = "addProductionToolStripMenuItem";
-            this.addProductionToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
-            this.addProductionToolStripMenuItem.Text = "Add Production";
-            // 
-            // button5
-            // 
-            this.button5.Enabled = false;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(906, 310);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(236, 47);
-            this.button5.TabIndex = 27;
-            this.button5.Text = "ADD PRODUCTION";
-            this.button5.UseVisualStyleBackColor = true;
+            this.addPrdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPrdBtn.Location = new System.Drawing.Point(906, 310);
+            this.addPrdBtn.Name = "addPrdBtn";
+            this.addPrdBtn.Size = new System.Drawing.Size(236, 47);
+            this.addPrdBtn.TabIndex = 27;
+            this.addPrdBtn.Text = "ADD PRODUCTION";
+            this.addPrdBtn.UseVisualStyleBackColor = true;
+            this.addPrdBtn.Click += new System.EventHandler(this.addPrdBtn_Click);
             // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 465);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.addPrdBtn);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -408,6 +408,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolStripMenuItem addProductionToolStripMenuItem;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button addPrdBtn;
     }
 }

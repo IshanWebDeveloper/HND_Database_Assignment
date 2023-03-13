@@ -43,6 +43,7 @@ namespace HND_Database_Assignment
                     HomePageForm home = new HomePageForm(userName, password);
                     this.Hide();
                     home.Show();
+                    GlobalDatabaseCon.CloseDBCon();
                 }
             }
             catch (Exception ex)

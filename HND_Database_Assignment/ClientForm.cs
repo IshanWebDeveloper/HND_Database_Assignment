@@ -8,18 +8,22 @@ namespace HND_Database_Assignment
     public partial class ClientForm : Form
     {
         private int ClientID { get; set; }
-
+        private string ClientName { get; set; }
+        private ProductionForm ProductionForm { get; set; }
 
         public ClientForm()
         {
             InitializeComponent();
         }
-        public ClientForm(int clientID)
+        public ClientForm(int clientID, ProductionForm PrdFromInstance)
         {
             InitializeComponent();
             ClientID = clientID;
+            ProductionForm = PrdFromInstance;
+
             if (clientID > 0)
             {
+
                 clientIDTxtBx.Text = Convert.ToString(clientID);
 
             }
@@ -70,16 +74,13 @@ namespace HND_Database_Assignment
                     if (reader.Read())
                     {
                         clientIDTxtBx.Text = Convert.ToString(ClientID);
-                        clientNameTxtBx.Text = reader[1].ToString();
+                        ClientName = reader[1].ToString();
+                        clientNameTxtBx.Text = ClientName;
                         clientLocationTxtBx.Text = reader[2].ToString();
                         clientCoNumberTxtBx.Text = reader[3].ToString();
 
                         reader.Close();
                         FillDataGridView(clientProductionQuery);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"No record found for Client ID {ClientID}", "NO RECORD FOUND!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
 
@@ -91,6 +92,11 @@ namespace HND_Database_Assignment
                 }
                 finally { GlobalDatabaseCon.CloseDBCon(); }
             }
+            else
+            {
+                MessageBox.Show($"No record found for Client ID {ClientID}", "NO RECORD FOUND!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void closeProgramToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +115,7 @@ namespace HND_Database_Assignment
                 ClientID = Convert.ToInt16(clientIDTxtBx.Text);
 
                 LoadClientForm();
+                clientIDTxtBx.Select(0, clientIDTxtBx.TextLength);
 
 
             }
@@ -117,6 +124,14 @@ namespace HND_Database_Assignment
         private void clientIDLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addPrdBtn_Click(object sender, EventArgs e)
+        {
+            ProductionForm.Focus();
+            this.Hide();
+            ProductionForm.clearProductionFrm();
+            ProductionForm.loadWithClientData(ClientID, ClientName);
         }
     }
 }

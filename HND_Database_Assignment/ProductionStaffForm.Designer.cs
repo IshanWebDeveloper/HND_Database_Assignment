@@ -234,7 +234,7 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1091, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1091, 30);
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -243,7 +243,7 @@
             this.logOutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem1});
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
             this.logOutToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem1
@@ -258,7 +258,7 @@
             this.userGuideToolStripMenuItem,
             this.userDocumentationToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // userGuideToolStripMenuItem
@@ -278,7 +278,7 @@
             this.exitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeProgramToolStripMenuItem});
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // closeProgramToolStripMenuItem
@@ -315,9 +315,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(530, 262);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(307, 25);
+            this.label6.Size = new System.Drawing.Size(483, 25);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Total Employee Compensation";
+            this.label6.Text = "Total Employee Compensation for the Production\r\n";
             // 
             // ProductionStaffForm
             // 

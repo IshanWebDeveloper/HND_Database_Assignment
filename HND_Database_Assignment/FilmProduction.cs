@@ -10,8 +10,10 @@ namespace HND_Database_Assignment
     {
         private int ProdID { get; set; }
         private int ClientID { get; set; }
+        private string ClientName { get; set; }
         private int LocationID { get; set; }
         private int TotalProductionDays { get; set; }
+
 
         public ProductionForm()
         {
@@ -19,21 +21,39 @@ namespace HND_Database_Assignment
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // when click on a row, full row will be selected
             dataGridView1.MultiSelect = false;
 
+
         }
-
-
 
         private void closeProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
 
+        public void loadWithClientData(int cID, string clientName)
+        {
+            try
+            {
+                ClientID = cID;
+                ClientName = clientName;
+                clientIDTxtBx.Text = ClientID.ToString();
+                clientNameTxtBx.Text = clientName;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+
         private void Load_production(int productionID)
         {
             try
             {
                 GlobalDatabaseCon.IntitializeDBCon();
-                SqlCommand command = new SqlCommand("SELECT Production_ID,  clientID, Client_Name, Production_Name, Production_Type, number_of_days FROM productions p INNER JOIN clients c on p.clientID = c.Client_ID   WHERE Production_ID=@pID", GlobalDatabaseCon.GetConObj());
+                SqlCommand command = new SqlCommand("  SELECT Production_ID,  ClientID, Client_Name, Production_Name, Production_Type, Number_of_Production_Days FROM Productions p INNER JOIN Clients c on p.ClientID = c.Client_ID   WHERE Production_ID=@pID", GlobalDatabaseCon.GetConObj());
                 command.Parameters.AddWithValue("@pID", Convert.ToString(productionID));
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -56,10 +76,6 @@ namespace HND_Database_Assignment
                     FillLocationListBox(ProdID);
 
                     prdDaysLabel.Text = TotalProductionDays.ToString();
-
-
-
-
                     if (reader[1] == null)
                     {
 
@@ -77,7 +93,6 @@ namespace HND_Database_Assignment
                     prdIDTextBx.Text = Convert.ToString(ProdID);
                     prdIDTextBx.Select(0, prdIDTextBx.TextLength);
                     prdDaysLabel.Text = "";
-                    addPrdBtn.Enabled = true;
                     viewClientLink.Enabled = false;
                     addCustLink.Enabled = true;
                     editPrdBtn.Enabled = false;
@@ -105,6 +120,7 @@ namespace HND_Database_Assignment
 
         }
 
+
         private void FillDataGridView(SqlCommand cmdQuery)
         {
             GlobalDatabaseCon.IntitializeDBCon();
@@ -125,7 +141,7 @@ namespace HND_Database_Assignment
             try
             {
                 GlobalDatabaseCon.IntitializeDBCon();
-                SqlCommand locationQuery = new SqlCommand("SELECT Location_Name,Location_ID  FROM locations WHERE productionID=@prdID", GlobalDatabaseCon.GetConObj());
+                SqlCommand locationQuery = new SqlCommand("SELECT Location_Name, Location_ID FROM Production_Locations WHERE ProductionID=@prdID", GlobalDatabaseCon.GetConObj());
                 locationQuery.Parameters.AddWithValue("@prdID", productionID);
                 SqlDataReader reader = locationQuery.ExecuteReader();
                 locationListBx.Items.Clear();
@@ -146,9 +162,10 @@ namespace HND_Database_Assignment
 
         }
 
-        private void clearProductionFrm()
+        public void clearProductionFrm()
         {
             prdIDTextBx.Text = string.Empty;
+            prdIDTextBx.Focus();
             ClientID = 0;
             viewClientLink.Enabled = false;
             viewStfDetailsBtn.Enabled = false;
@@ -158,7 +175,7 @@ namespace HND_Database_Assignment
             clientIDTxtBx.Text = string.Empty;
             prdDaysLabel.Text = string.Empty;
             prdStartDate.ResetText();
-            prdEndDate.ResetText();
+
             prdTypeTxtBx.Text = string.Empty;
             locationListBx.Items.Clear();
             dataGridView1.DataSource = null;
@@ -169,7 +186,7 @@ namespace HND_Database_Assignment
         {
             if (ClientID > 0)
             {
-                ClientForm clientForm = new ClientForm(ClientID);
+                ClientForm clientForm = new ClientForm(ClientID, this);
                 clientForm.Show();
 
             }
@@ -251,7 +268,7 @@ namespace HND_Database_Assignment
 
         private void viewClientLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ClientForm clientForm = new ClientForm(ClientID);
+            ClientForm clientForm = new ClientForm(ClientID, this);
             clientForm.Show();
         }
 
@@ -259,6 +276,11 @@ namespace HND_Database_Assignment
         {
             ProductionStaffForm prdStaff = new ProductionStaffForm(ProdID);
             prdStaff.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

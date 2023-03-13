@@ -9,7 +9,7 @@ namespace HND_Database_Assignment
     {
         private int ProducID;
 
-        private int NoOfProductionDays { get; set; }
+        private int NoOfProductionDays;
         public ProductionStaffForm()
         {
             InitializeComponent();
@@ -77,6 +77,7 @@ namespace HND_Database_Assignment
         {
             try
             {
+
                 GlobalDatabaseCon.IntitializeDBCon();
                 SqlCommand calculateEmCompQuery = new SqlCommand("SELECT Production_ID, SUM(number_of_employees *(fee_per_production_day * number_of_days)) as total_employee_compensation FROM production_staff ps inner join staff_type st ON ps.Staff_Type = st.staff_type_ID inner join productions p on p.Production_ID = ps.ProductionID where Production_ID=@PrducID group by Production_ID", GlobalDatabaseCon.GetConObj());
                 calculateEmCompQuery.Parameters.AddWithValue("@PrducID", ProducID.ToString());
